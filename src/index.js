@@ -1,14 +1,10 @@
+
+import { createApp } from 'vue'
+
+import example from './components/example.vue'
+
 import "./styles/index.scss";
 
-console.log('Hello World');
+const app = createApp(example)
 
-var animalObjects = {
-  cow: 3,
-  hourse: 2,
-};
-
-var animalDiv = document.body.appendChild(document.createElement('div'))
-
-for (const prop in animalObjects) {
-    animalDiv.textContent += `animalObjects.${prop} = ${animalObjects[prop]}\n`;
-  }
+app.mount('#app')

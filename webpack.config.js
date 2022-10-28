@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { VueLoaderPlugin } = require('vue-loader')
 
 let mode = "development";
 let target = "web";
@@ -30,10 +31,22 @@ module.exports = {
                     loader: "babel-loader",
                 },
             },
+            {
+                test: /\.vue$/,     
+                loader: "vue-loader",
+                options: {
+                    loader: {
+                        scss: "vue-style-loader!css-loader!sass-loader"
+                    }
+                }
+            },
         ],
     },
 
-    plugins: [new MiniCssExtractPlugin()],
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new VueLoaderPlugin()
+    ],
 
     devtool: "source-map",
 
