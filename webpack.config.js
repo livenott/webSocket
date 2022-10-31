@@ -1,8 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { VueLoaderPlugin } = require('vue-loader')
+const { VueLoaderPlugin } = require('vue-loader');
+var webpack = require('webpack');
 
 let mode = "development";
 let target = "web";
+
 
 if (process.env.NODE_ENV === "production"){
     mode = "production";
@@ -48,10 +50,18 @@ module.exports = {
             },
         ],
     },
-
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm-bundler.js'
+        }
+    },
     plugins: [
         new MiniCssExtractPlugin(),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: false,
+            __VUE_PROD_DEVTOOLS__: false,
+        })
     ],
 
     devtool: "source-map",

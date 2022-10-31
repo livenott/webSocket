@@ -4,7 +4,7 @@
             <h3>
                 New Page
             </h3>
-            <div class="d-flex">
+            <div class="d-flex text-light">
                 <div>
                     am
                 </div>
@@ -19,6 +19,7 @@
     </section>
 </template>
 <script>
+
 console.log('Hello World');
 
 var animalObjects = {
@@ -30,8 +31,5 @@ var animalDiv = document.body.appendChild(document.createElement('div'))
 
 for (const prop in animalObjects) {
     animalDiv.textContent += `animalObjects.${prop} = ${animalObjects[prop]}\n`;
-  }
-export default {
-
 }
 </script>

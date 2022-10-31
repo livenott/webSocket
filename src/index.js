@@ -1,12 +1,9 @@
-
 import { createApp } from 'vue'
 
 import 'bootstrap'
 
-import example from './components/example.vue'
+import App from './components/App.vue'
 
-import "./styles/index.scss";
+const app = createApp(App);
 
-const app = createApp(example)
-
-app.mount('#app')
+app.mount("#app")
