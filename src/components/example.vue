@@ -4,6 +4,17 @@
             <h3>
                 New Page
             </h3>
+            <div class="d-flex">
+                <div>
+                    am
+                </div>
+                <div>
+                    am
+                </div>
+                <div>
+                    am
+                </div>
+            </div>
         </div>
     </section>
 </template>

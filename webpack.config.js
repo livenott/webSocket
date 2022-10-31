@@ -16,6 +16,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.svg$/,
+                loader: 'vue-svg-loader'
+            },
+            {
                 test: /\.(s[ac]|c)ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -32,11 +36,13 @@ module.exports = {
                 },
             },
             {
-                test: /\.vue$/,     
-                loader: "vue-loader",
-                options: {
-                    loader: {
-                        scss: "vue-style-loader!css-loader!sass-loader"
+                test: /\.vue$/,
+                use: {    
+                    loader: "vue-loader",
+                    options: {
+                        loader: {
+                            scss: "vue-style-loader!css-loader!sass-loader"
+                        }
                     }
                 }
             },

@@ -1,5 +1,7 @@
 @use "variables";
 
+@import "~bootstrap/scss/bootstrap";
+
 body {
     background-color: variables.$bg;
     color: var(--text);
