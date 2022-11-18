@@ -1,9 +1,16 @@
-import { createApp } from 'vue'
-
 import 'bootstrap'
 
-import App from './components/App.vue'
+import "./styles/index.scss"
 
-const app = createApp(App);
+console.log('Hello World');
 
-app.mount("#app")
+var animalObjects = {
+  cow: 3,
+  hourse: 2,
+};
+
+var animalDiv = document.body.appendChild(document.createElement('div'))
+
+for (const prop in animalObjects) {
+    animalDiv.textContent += `animalObjects.${prop} = ${animalObjects[prop]}\n`;
+  }

@@ -1,6 +1,4 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { VueLoaderPlugin } = require('vue-loader');
-var webpack = require('webpack');
 
 let mode = "development";
 let target = "web";
@@ -18,10 +16,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.svg$/,
-                loader: 'vue-svg-loader'
-            },
-            {
                 test: /\.(s[ac]|c)ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
@@ -37,31 +31,10 @@ module.exports = {
                     loader: "babel-loader",
                 },
             },
-            {
-                test: /\.vue$/,
-                use: {    
-                    loader: "vue-loader",
-                    options: {
-                        loader: {
-                            scss: "vue-style-loader!css-loader!sass-loader"
-                        }
-                    }
-                }
-            },
         ],
-    },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm-bundler.js'
-        }
     },
     plugins: [
         new MiniCssExtractPlugin(),
-        new VueLoaderPlugin(),
-        new webpack.DefinePlugin({
-            __VUE_OPTIONS_API__: false,
-            __VUE_PROD_DEVTOOLS__: false,
-        })
     ],
 
     devtool: "source-map",
